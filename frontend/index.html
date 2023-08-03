@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Testing Agency</title>
+    <style>
+      .box {
+        background-color: purple;
+        height: 200px;
+        width: 200px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">{{greeting}}</div>
-    <div><h1>Find the best testers</h1></div>
+    <div>
+      <h1>Find the best testers</h1>
+      <!--2 way data binding for v-model directive-->
+      <input v-model="greeting" />
+      <hr />
+      <!--Allows for the box to show-->
+      <div v-show="isVisible" class="box"></div>
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
 
     <script>
@@ -16,6 +30,8 @@
         data: function () {
           return {
             greeting: "Find the best testers",
+            //If false box would not show
+            isVisible: false,
           };
         },
       });
